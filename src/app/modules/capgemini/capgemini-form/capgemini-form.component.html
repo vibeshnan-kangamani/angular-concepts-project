@@ -23,13 +23,24 @@
       </div>
 
       <label >Hobbies</label>
-        <div formArrayName="hobbies">
+        <!-- <div formArrayName="hobbies">
           <div class="input-wrapper" *ngFor="let user of hobbies.controls; let i = index">
             <input class="input" type="text" placeholder="Type user..." formControlName="{{i}}">
-            <span class="action" (click)="addHobbies()">+</span>
-            <span class="action" (click)="removeHobbies(i)">x</span>
+            <div class="add-button" (click)="addHobbies()">
+              <span class="icon">+</span>
+            </div>
+            <div class="add-button" (click)="removeHobbies(i)">
+              <span class="icon">+</span>
+            </div>
           </div>
+        </div> -->
+      <div class="input-container" formArrayName="hobbies">
+        <div class="input-wrapper" *ngFor="let user of hobbies.controls; let i = index">
+          <input type="text" class="input-field" placeholder="Enter Your {{i+1}} hobby" formControlName="{{i}}">
+          <button class="icon-button"  (click)="addHobbies()">+</button>
+          <button class="icon-button" (click)="removeHobbies(i)">-</button>
         </div>
+      </div>
 
       <div class="verified-info">
         <input type="checkbox" name="verifiedInfo" formControlName="verifiedInfo"/> All the Information are verified
