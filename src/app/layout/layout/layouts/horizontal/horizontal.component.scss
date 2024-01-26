@@ -3,6 +3,7 @@
   justify-content: space-between;
   height: 70px;
   border: 1px solid black;
+  margin-bottom: 15px;
 
   .logo{
     position: relative;
@@ -10,14 +11,22 @@
     left: 10px
   }
   nav {
-    width: 50%;
+    width: auto;
     display: flex;
+    flex-wrap: nowrap;
     justify-content: center;
     align-items: center;
 
     a{
-      width: 30%;
+      width: 100%;
+      margin-right: 40px;
+      text-decoration: none;
+      color: black;
     }
   }
 
+}
+
+.route-active{
+  color: chocolate !important;
 }

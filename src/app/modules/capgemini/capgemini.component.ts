@@ -8,6 +8,7 @@ import { CapgeminiGridComponent } from './capgemini-grid/capgemini-grid.componen
   standalone: true,
   imports: [CommonModule, CapgeminiFormComponent, CapgeminiGridComponent],
   templateUrl: './capgemini.component.html',
+  styleUrl: "./capgemini.component.scss"
 })
 export class CapgeminiComponent {
 
