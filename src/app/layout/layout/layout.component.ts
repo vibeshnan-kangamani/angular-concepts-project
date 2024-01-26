@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, NavigationEnd, Router } from '@angular/router';
 import { Subject, filter, takeUntil } from 'rxjs';
+import { RouterNavigationService } from '../../services/router/router-navigation.service';
 
 @Component({
   selector: 'app-layout',
@@ -10,40 +11,15 @@ import { Subject, filter, takeUntil } from 'rxjs';
 export class LayoutComponent implements OnInit {
 
 
-  layout: string = "empty";
   _unsubscribeAll: Subject<any> = new Subject<any>();
 
 
-  constructor(private _activatedRoute: ActivatedRoute,
-    private _router: Router) { }
+  constructor(public routerService: RouterNavigationService) { }
 
   ngOnInit() {
 
-    // Subscribe to NavigationEnd event
-    this._router.events.pipe(
-      filter(event => event instanceof NavigationEnd),
-      takeUntil(this._unsubscribeAll),
-    ).subscribe(() =>
-    {
-      // Update the layout
-      this._updateLayout();
-    });
-
   }
 
-
-  private _updateLayout(): void
-  {
-        // Get the current activated route
-        let route = this._activatedRoute;
-
-        const layoutFromQueryParam = route.snapshot.queryParamMap.get('layout');
-        if ( layoutFromQueryParam )
-        {
-          this.layout = layoutFromQueryParam;
-          console.log(this.layout);
-        }
-  }
 
 
 

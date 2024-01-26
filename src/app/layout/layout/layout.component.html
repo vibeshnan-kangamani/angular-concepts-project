@@ -1,4 +1,6 @@
 
-<app-empty *ngIf="layout == 'empty'"></app-empty>
+<app-empty *ngIf="routerService.layout == 'empty'"></app-empty>
 
-<app-horizontal *ngIf="layout == 'horizontal'"></app-horizontal>
+<app-horizontal *ngIf="routerService.layout == 'horizontal'"></app-horizontal>
+
+<router-outlet></router-outlet>
